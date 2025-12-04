@@ -606,6 +606,11 @@ Celestial.display = function(config) {
             setTextStyle(cfg.planets.symbolStyle);
             context.fillStyle = sym.fill;
             context.fillText(sym.letter, pt[0], pt[1]);
+		  } else if (id === "sol") {
+		  	const sun_path = "M126.7,10.7c-0.1,0.4-1.9,23-3.9,50.3c-2.1,27.3-3.8,49.7-3.9,49.7c-0.1,0.1-9.1-7.5-20.1-16.9c-10.9-9.4-20.2-17.2-20.6-17.3c-0.3-0.2-1,0.1-1.4,0.6c-0.6,0.7-0.6,1.1,0.1,1.9c0.4,0.6,8.2,9.7,17.4,20.4c9.2,10.6,16.5,19.4,16.4,19.5c-0.1,0.1-22.4,1.8-49.7,3.9c-27.3,2-49.9,3.8-50.2,3.9c-0.9,0.3-0.9,2.5,0,2.8c0.3,0.1,23,1.9,50.2,3.9c27.3,2.1,49.7,3.8,49.7,3.9c0.1,0.1-7.5,9.1-16.9,20.1c-9.4,10.9-17.2,20.2-17.3,20.6c-0.2,0.3,0.1,1,0.6,1.4c1,0.8-1.6,2.9,22.2-17.5c10.6-9.1,19.4-16.5,19.6-16.4c0.1,0.1,1.9,22.7,4,50.2c2.8,37.8,4,50.1,4.5,50.2c1.2,0.5,2.4-0.3,2.4-1.6c0-2.1,7.4-98.7,7.5-98.8c0.1-0.1,8.9,7.2,19.5,16.4c10.6,9.1,19.8,16.9,20.4,17.4c1,0.7,1.2,0.7,2-0.1c0.8-0.8,0.8-1,0.1-2c-0.4-0.6-8.2-9.7-17.4-20.4c-9.2-10.6-16.5-19.4-16.4-19.5c0.2-0.2,96.8-7.5,98.8-7.5c1.3,0,2.1-1.2,1.6-2.4c-0.2-0.6-12.4-1.7-50.2-4.5c-27.5-2.1-50.1-3.9-50.2-4c-0.1-0.1,7.3-8.9,16.4-19.6c20.4-23.7,18.3-21.2,17.5-22.2c-0.4-0.5-1.1-0.8-1.4-0.6c-0.4,0.1-9.6,7.9-20.6,17.3c-11,9.4-20,17-20.1,16.9c-0.1-0.1-1.8-22.4-3.9-49.7c-2-27.3-3.8-49.9-3.9-50.3c-0.2-0.3-0.8-0.7-1.4-0.7C127.5,10,126.9,10.3,126.7,10.7z";
+		  	r = has(sym, "size") && isNumber(sym.size) ? sym.size * adapt : planetSize(p.ephemeris);
+			context.fillStyle = sym.fill;
+			Canvas.symbol().type(() => sun_path).size(r*r).position(pt)(context);
           } else if (id === "lun") {
             if (has(sym, "size") && isNumber(sym.size)) r = sym.size * adapt;
             context.fillStyle = sym.fill;
@@ -4925,7 +4930,7 @@ function exportSVG(fname) {
             jp.features.push(createEntry(p));
         }
       });
-      if (cfg.planets.symbolType === "disk") {
+	  if (cfg.planets.symbolType === "disk") {
         groups.planets.selectAll(".planets")
          .data(jp.features)
          .enter().append("path")
