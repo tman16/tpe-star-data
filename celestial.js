@@ -616,6 +616,7 @@ Celestial.display = function(config) {
   				}
 			}*/
 			function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius) {
+				ctx.save();
 				console.log('cx',cx);
 				console.log('cy',cy);
 				console.log('outerRadius',outerRadius);
@@ -651,7 +652,7 @@ Celestial.display = function(config) {
     			ctx.stroke();
     			ctx.fillStyle='#FFEA00';
     			ctx.fill();
-
+				ctx.retore();
 			}
 			drawStar(context, pt[0], pt[1], 12, (r*r)/4, r/4);
 			//context.fillStyle = sym.fill;
@@ -672,12 +673,15 @@ Celestial.display = function(config) {
             context.fillText(sym[cfg.planets.symbolType], pt[0], pt[1]);            
           }
           //name
-          if (cfg.planets.names && (id !== "sol" || id !== "lun")) {
-            var name = p[cfg.planets.namesType];
-            setTextStyle(cfg.planets.nameStyle);
-            //context.direction = "ltr" || "rtl" ar il ir
-            context.fillStyle = sym.fill;
-            context.fillText(name, pt[0] - r/2, pt[1] + r/2);                        
+          if (cfg.planets.names) {
+			  if (id === "sol" || id === "lun") {
+			  } else {
+            	var name = p[cfg.planets.namesType];
+            	setTextStyle(cfg.planets.nameStyle);
+            	//context.direction = "ltr" || "rtl" ar il ir
+            	context.fillStyle = sym.fill;
+            	context.fillText(name, pt[0] - r/2, pt[1] + r/2); 
+			  }
           }
         }
       });
