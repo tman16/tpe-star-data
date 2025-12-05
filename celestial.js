@@ -653,7 +653,7 @@ Celestial.display = function(config) {
     			ctx.fill();
 
 			}
-			drawStar(context, pt[0], pt[1], 12, r, r/2);
+			drawStar(context, pt[0], pt[1], 12, r*0.5, r*0.5);
 			//context.fillStyle = sym.fill;
 			//Canvas.symbol().type(eightpointstar).size(r*r).position(pt)(context);
           } else if (id === "lun") {
