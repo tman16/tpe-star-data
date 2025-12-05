@@ -611,7 +611,7 @@ Celestial.display = function(config) {
 		  	r = has(sym, "size") && isNumber(sym.size) ? sym.size * adapt : planetSize(p.ephemeris);
 			var eightpointstar = {
   				draw: function(context, size) {
-    				drawStar(context, pt[0], pt[1], 12, r, r/2);
+    				drawStar(context, pt[0], pt[1], 12, r*r, r);
   				}
 			}
 			function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius) {
