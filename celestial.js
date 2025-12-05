@@ -612,7 +612,7 @@ Celestial.display = function(config) {
 			console.log('pt',pt);
 			/*var eightpointstar = {
   				draw: function(context, size) {
-    				drawStar(context, pt[0], pt[1], 12, r*r, r);
+    				drawStar(context, pt[0], pt[1], 12, r, r/2);
   				}
 			}*/
 			function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius) {
@@ -647,9 +647,9 @@ Celestial.display = function(config) {
     			ctx.lineTo(cx, cy - outerRadius)
     			ctx.closePath();
     			ctx.lineWidth=5;
-    			ctx.strokeStyle='blue';
+    			ctx.strokeStyle='#F28C28';
     			ctx.stroke();
-    			ctx.fillStyle='skyblue';
+    			ctx.fillStyle='#FFEA00';
     			ctx.fill();
 
 			}
