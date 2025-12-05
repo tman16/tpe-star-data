@@ -629,8 +629,13 @@ Celestial.display = function(config) {
     			ctx.beginPath();
     			ctx.moveTo(cx, cy - outerRadius)
     			for (i = 0; i < spikes; i++) {
-        			x = cx + Math.cos(rot) * outerRadius;
-        			y = cy + Math.sin(rot) * outerRadius;
+					if (i % 2 !== 0) {
+        				x = cx + Math.cos(rot) * (outerRadius/2);
+        				y = cy + Math.sin(rot) * (outerRadius/2);
+					} else {
+        				x = cx + Math.cos(rot) * outerRadius;
+        				y = cy + Math.sin(rot) * outerRadius;
+					}
         			ctx.lineTo(x, y)
         			rot += step
 
