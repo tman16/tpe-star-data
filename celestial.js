@@ -672,7 +672,7 @@ Celestial.display = function(config) {
             context.fillText(sym[cfg.planets.symbolType], pt[0], pt[1]);            
           }
           //name
-          if (cfg.planets.names) {
+          if (cfg.planets.names && id !== "sol" || cfg.planets.names && id !== "moon") {
             var name = p[cfg.planets.namesType];
             setTextStyle(cfg.planets.nameStyle);
             //context.direction = "ltr" || "rtl" ar il ir
