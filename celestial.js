@@ -649,7 +649,7 @@ Celestial.display = function(config) {
 
 			}
 			//context.fillStyle = sym.fill;
-			//Canvas.symbol().type(() => sun_path).size(r*r).position(pt)(context);
+			Canvas.symbol().type(eightpointstar).size(r*r).position(pt)(context);
           } else if (id === "lun") {
             if (has(sym, "size") && isNumber(sym.size)) r = sym.size * adapt;
             context.fillStyle = sym.fill;
