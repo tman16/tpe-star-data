@@ -615,6 +615,10 @@ Celestial.display = function(config) {
   				}
 			}
 			function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius) {
+				console.log('cx',cx);
+				console.log('cy',cy);
+				console.log('outerRadius',outerRadius);
+				console.log('innerRadius',innerRadius);
     			var rot = Math.PI / 2 * 3;
     			var x = cx;
     			var y = cy;
