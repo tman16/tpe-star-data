@@ -652,7 +652,7 @@ Celestial.display = function(config) {
     			ctx.stroke();
     			ctx.fillStyle='#FFEA00';
     			ctx.fill();
-				ctx.retore();
+				ctx.restore();
 			}
 			drawStar(context, pt[0], pt[1], 12, (r*r)/4, r/4);
 			//context.fillStyle = sym.fill;
